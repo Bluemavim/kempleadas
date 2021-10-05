@@ -1,5 +1,6 @@
-package ar.com.ada.api.kempleadas
+package ar.com.ada.api.kempleadas.entities
 
+import java.math.BigDecimal
 import java.util.*
 import javax.persistence.Column
 import javax.persistence.Entity
@@ -17,14 +18,14 @@ data class Empleada(
 
         @Id // ¿es necesaria la notación de la columna? ¿ qué pasa con el generationTpye?
         @Column(name = "empleada_id")
-        var empleadaId: Integer,
+        var empleadaId: Int,
 
         // Revisar:
         //ManyToOne //join columns van donde esta FK
         //@JoinColumn(name = "categoria_id", referencedColumnName = "categoria_id")
         //private Categoria categoria;
-                
-        val sueldo: BigDecimal 
+
+        val sueldo: BigDecimal,
 
         @Column(name = "fecha_alta")
         var fechaAlta: Date,
@@ -32,8 +33,9 @@ data class Empleada(
         @Column(name = "fecha_baja")
         var fechaBaja: Date,
 
-        val nombre: String
-        val edad:Integer
+        val nombre: String,
+
+        val edad:Int
 
 )
 

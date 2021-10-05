@@ -1,5 +1,6 @@
-package ar.com.ada.api.kempleadas
+package ar.com.ada.api.kempleadas.entities
 
+import java.math.BigDecimal
 import java.util.*
 import javax.persistence.Column
 import javax.persistence.Entity
@@ -21,10 +22,10 @@ data class Categoria(
         @Column(name = "categoria_id")
         var categoriaId: Integer,
 
-        val nombre: String
+        val nombre: String,
 
         @Column(name = "sueldo_base")
-        val sueldoBase: BigDecimal 
+        val sueldoBase: BigDecimal
 
         //REVISAR
         //@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, fetch = FetchType.EAGER)

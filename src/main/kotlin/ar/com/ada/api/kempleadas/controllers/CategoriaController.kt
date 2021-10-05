@@ -1,6 +1,7 @@
-package ar.com.ada.api.kempleadas
+package ar.com.ada.api.kempleadas.controllers
 import org.springframework.web.bind.annotation.*
-import ar.com.ada.api.kempleadas.models*
+import ar.com.ada.api.kempleadas.models.response.GenericResponse
+import ar.com.ada.api.kempleadas.models.request.InfoEmpleadaNueva
 import ar.com.ada.api.kempleadas.services.CategoriaService
 
 @RestController

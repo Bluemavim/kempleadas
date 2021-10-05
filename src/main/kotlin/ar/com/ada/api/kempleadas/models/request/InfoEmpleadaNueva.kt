@@ -1,4 +1,4 @@
-package ar.com.ada.api.kempleadas
+package ar.com.ada.api.kempleadas.models.request
 
 import javax.validation.constraints.Min
 import javax.validation.constraints.NotBlank
@@ -10,7 +10,7 @@ data class InfoEmpleadaNueva(
         val id: String?,
 
         @field:NotBlank
-        val edad: Integer?,
+        val edad: Int?,
 
         @field:NotNull
         @field:Min(value = 1)
@@ -18,6 +18,6 @@ data class InfoEmpleadaNueva(
 
         @field:NotNull
         @field:Min(value = 0)
-        val categoriaId: Integer?
+        val categoriaId: Int?
 
 )

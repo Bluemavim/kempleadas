@@ -1,10 +1,12 @@
-package ar.com.ada.api.kempleadas
+package ar.com.ada.api.kempleadas.repos
 
 import org.springframework.data.jpa.repository.JpaRepository
 import ar.com.ada.api.kempleadas.entities.Categoria
+import org.springframework.stereotype.Repository
 
-interface CategoriaRepository : JpaRepository<Categoria, Integer>{
+@Repository
+interface CategoriaRepository : JpaRepository<Categoria, Int>{
     //revisar
-    findByNombre: Categoria (categoriaNombre:String)
+   fun findByNombre(categoriaNombre:String): Categoria?
 
 }
