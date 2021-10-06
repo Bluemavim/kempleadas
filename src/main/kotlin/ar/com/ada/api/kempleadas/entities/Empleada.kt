@@ -2,42 +2,38 @@ package ar.com.ada.api.kempleadas.entities
 
 import java.math.BigDecimal
 import java.util.*
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.Table
+import javax.persistence.*
+import java.sql.Date
+
 
 @Entity
 @Table(name = "empleada")
 data class Empleada(
 
-    //@Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    //@Column(name = "empleada_id")
-    //private Integer empleadaId;
+        //El signo de pregunta al final del tipo de variable tiene que ver con el concepto de Null Safety en Kotlin
+        // Ver: https://kotlinlang.org/docs/null-safety.html
 
-        @Id // ¿es necesaria la notación de la columna? ¿ qué pasa con el generationTpye?
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "empleada_id")
-        var empleadaId: Int,
+        var empleadaId: Int?,
 
-        // Revisar:
-        //ManyToOne //join columns van donde esta FK
-        //@JoinColumn(name = "categoria_id", referencedColumnName = "categoria_id")
-        //private Categoria categoria;
+        @ManyToOne
+        @JoinColumn(name = "categoria_id", referencedColumnName = "categoria_id")
+        var categoria: Categoria?,
 
-        val sueldo: BigDecimal,
+        var sueldo: BigDecimal?,
 
-        @Column(name = "fecha_alta")
-        var fechaAlta: Date,
+        @Column(name = "fecha_alta", nullable = false)
+        var fechaAlta: Date?,
 
         @Column(name = "fecha_baja")
         var fechaBaja: Date,
 
-        val nombre: String,
+        var nombre: String?,
 
-        val edad:Int
+        var edad:Int?
 
 )
 
-
-//¿Qué pasa con los getters y setters? VER
+        // ¿Es necesario utilizar el mecanismo de Null Safety cuando se utiliza: nullable = false?
