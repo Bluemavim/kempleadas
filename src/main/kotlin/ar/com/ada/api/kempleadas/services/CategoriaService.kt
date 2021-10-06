@@ -1,10 +1,13 @@
 package ar.com.ada.api.kempleadas.services
 
 import ar.com.ada.api.kempleadas.entities.Categoria
+import ar.com.ada.api.kempleadas.entities.Empleada
 import ar.com.ada.api.kempleadas.repos.CategoriaRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
+import java.util.function.Predicate
+import java.util.stream.Collectors
 
 
 @Service
@@ -35,5 +38,22 @@ class CategoriaService (
         }
 
         //Falta incorporar métodos relacionados con Empleadas.
+
+        fun obtenerCategoriasSinEmpleadas(): List<Categoria>? {
+                return traerCategorias()!!.stream().filter(Predicate { categoria: Categoria ->
+                        categoria.getEmpleadas().size() === 0
+                }) // lambda
+                        .collect(Collectors.toList())
+        }
+
+        fun traerEmpleadaPorCategoria(catId:Int?): List<Empleada>{
+                val categoria: Categoria = categoriaService.buscarCategoria(catId),
+                return categoria.getEmpleadas()
+
+
+
+
+
+
 
 }
